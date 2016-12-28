@@ -28,7 +28,7 @@ function inputChange()
 
 function updateView()
 {
-    var template = '<li><h4 data-field="name"></h4><p data-field="address"></p></li>';
+    var template = '<li class="search-item"><h4 data-field="name"></h4><p data-field="address"></p></li>';
     resultsDiv.empty();
     searchData.forEach(function(element)
     {
@@ -56,11 +56,37 @@ function search(name)
      var myQuery = "SELECT *,ST_AsGeoJSON(ST_Centroid(the_geom)) as centroid FROM parcels_carto WHERE " + ownerQ + " ORDER BY OWNERNAME LIMIT 25";
 
 
+    
      $.getJSON(
      endpoint,
      { q: myQuery },
-     function (data) {                                
+     function (data) {    
          searchData = data.rows;
          updateView();
      });
 }
+
+function resultClick(resultId)
+{
+    zoomToParcel(searchData[resultId]);
+}
+
+
+
+$("#results_list").on("click", 'li',function(event) {
+   var item = event.target;  
+   if ((item.tagName != "LI") && (item.parentElement.tagName == "LI"))
+   {
+       item = item.parentElement;
+   }
+
+   var id = $(item).index();
+   resultClick(id);
+   
+
+});
+
+$(function(){
+    setupSearchBox();
+}
+);

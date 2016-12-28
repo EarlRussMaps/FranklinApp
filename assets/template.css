@@ -178,3 +178,11 @@ html, body, #sidebar, #container {
                     display: none !important;
                 }
             }
+
+#results_list > li:hover{
+    background-color: #ccffcc;
+}
+
+#results_list > li.active{
+    background-color: red!important;
+}
