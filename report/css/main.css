@@ -1,0 +1,299 @@
+/*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
+
+html {
+    font-family: 'Noto Sans', sans-serif;
+    line-height: 1.15;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%
+}
+body {
+    margin: 0
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+    display: block
+}
+img {
+max-width: 100%;
+height: 300px;
+display: block;
+margin: 0 auto;
+}
+audio,
+canvas,
+progress,
+video {
+    display: inline-block
+}
+audio:not([controls]) {
+    display: none;
+    height: 0
+}
+progress {
+    vertical-align: baseline
+}
+[hidden],
+template {
+    display: none
+}
+a {
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects
+}
+a:active,
+a:hover {
+    outline-width: 0
+}
+abbr[title] {
+    border-bottom: none;
+    text-decoration: underline;
+    text-decoration: underline dotted
+}
+b,
+strong {
+    font-weight: inherit;
+    font-weight: bolder
+}
+dfn {
+    font-style: italic
+}
+h1 {
+    font-size: 3em;
+	margin:0;
+
+}
+
+#mapid
+{
+	margin-top: 10px;
+	flex-grow: 1;
+}
+h2  {
+	margin:0;
+}
+mark {
+    background-color: #ff0;
+    color: #000
+}
+small {
+    font-size: 80%
+}
+sub,
+sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline
+}
+sub {
+    bottom: -.25em
+}
+sup {
+    top: -.5em
+}
+img {
+    border-style: none
+}
+svg:not(:root) {
+    overflow: hidden
+}
+code,
+kbd,
+pre,
+samp {
+    font-family: monospace, monospace;
+    font-size: 1em
+}
+figure {
+    margin: 1em 40px
+}
+hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible
+}
+
+table {
+	table-layout: fixed;
+	width: 100%;
+	display: table;
+	background: #E7F5E5;
+	/*background: #edf2d3;*/
+	box-shadow: 0 0 3px #666, 0 10px 6px -6px #666;
+}
+.metric-box {
+    width: 100%;
+    border-collapse: collapse;
+    border-style: hidden;
+    margin-top: 20px;
+    display: none
+}
+.metric-box td {
+    border: 2px solid #9ABE60;
+}
+.metric-box h1 {
+    text-transform: uppercase;
+}
+.table {
+    font-weight: 400;
+    border-collapse: collapse;
+}
+.table td {
+    vertical-align: top;
+    padding: 5px;
+    font-size: .9em
+}
+.table .description {
+    display: block;
+    font-size: .8em
+}
+
+.table th {
+    border-bottom: 1px solid #000;
+    padding: 0px
+}
+.table thead {
+    display: table-row-group
+}
+@page {
+    size: 8.5in 11in;
+    margin: .75in
+}
+body {
+    background: #ccc;
+	font-family: 'Noto Sans', sans-serif;
+    line-height: 1.5;
+    padding: 0px 0 1em;
+    font-size: 14px;
+    font-weight: 400
+}
+.container {
+    width: 6.9in;
+    margin: 0 auto;
+}
+* {
+    box-sizing: border-box
+}
+a {
+    color: #337ab7;
+    text-decoration: none
+}
+a:focus,
+a:hover {
+    color: #23527c;
+    text-decoration: underline
+}
+.text-left {
+    text-align: left
+}
+.text-right {
+    text-align: right
+}
+.text-center {
+    text-align: center
+}
+h1 {
+    margin-top: 0px;
+}
+
+h2 {
+	margin: 10px;
+}
+
+.fixednav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1
+}
+
+.blather {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    -webkit-column-gap: 20px;
+    -moz-column-gap: 20px;
+    column-gap: 20px
+}
+.blather p:first-child {
+    margin-top: 0
+}
+.embed {
+    height: 9.4in
+}
+.embed iframe {
+    overflow: hidden;
+    border: none
+}
+.page {
+    width: 6.9in;
+    height: 9.4in;
+    margin: 50px auto;
+    padding: .2in;
+    background: #fff;
+    box-shadow: 0 0 3px #666, 0 10px 6px -6px #666;
+    position: relative;
+	display: flex; flex-direction: column;
+}
+.page-map {
+    padding: 0;
+    display: none
+}
+
+@media print {
+    .fixednav {
+        display: none
+    }
+    .page,
+    body {
+        padding: 0
+    }
+    .page {
+        margin: 0;
+        box-shadow: none
+    }
+}
+
+.building_table
+{
+	background: white;
+	border-color: black;
+	border-size: 1px;
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.building_key
+{
+	background: #dce6f0;
+	 margin: 10px auto;
+     width: 100%;
+     position: relative;
+     font-weight: bold;
+}
+
+.building_value
+{
+	background: #ecf0df;
+	 margin: 10px auto;
+     width: 100%;
+     position: relative;
+}
+
+.building-head
+{
+   text-align: center;
+
+}
+/*# sourceMappingURL=main.css.map */

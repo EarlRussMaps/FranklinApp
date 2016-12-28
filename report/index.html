@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<!-- saved from url=(0033)http://mcmap.org/qol-report/?s=33 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="GIS, Franklin County, property, parcels, map, maps, floodplain,zoning,assessment,tax">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>Franklin County - Detailed Parcel Report</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="http://mcmap.org/qol-report/img/android-desktop.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Quality of Life Explorer">
+    <link rel="apple-touch-icon-precomposed" href="http://mcmap.org/qol-report/img/ios-desktop.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="img/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="http://mcmap.org/qol-report/img/favicon.png">
+
+    <!-- Theme color for Android -->
+    <meta name="theme-color" content="#db5945">
+
+    <!-- Fonts -->
+    <link href="css/main.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
+	 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.1/dist/leaflet.css" />
+<style id="holderjs-style" type="text/css"></style></head>
+<body>
+    <div class="container">
+        <!-- Front page -->
+        <div class="page page-front">
+            <div>
+                <div class="subhero">
+                    <h1 class="text-center" id="reportTitle">Franklin County</h1>
+					<h2 class="text-center" id="reportTitle">Detailed Parcel Report</h2>					
+                </div>
+            </div>
+            <div class="blather">
+                <p></p>
+            </div>
+            <table class="text-center metric-box" style="display: table;">
+                <tbody>
+
+				<h2 style="text-align:center">General</h2>
+                    <tr>
+                        <td>
+                           <h2>Owner</h2>
+							<p data-key="ownername">N/A</p>
+                            
+                        </td>
+                        <td>
+                           <h2>Parcel #</h2>
+							<p data-key="parcelnumber">N/A</p>
+                        </td>
+                        <td>
+                           <h2>Account #</h2>
+							<p data-key="total_value">N/A</p>
+                        </td>
+                    </tr>
+					<tr>
+                        <td>
+                           <h2>Mail Address</h2>
+							<p data-key="fulladdress"></p>
+                        </td>
+                        <td>
+                           <h2>Physical Address</h2>
+							<p data-key="physaddress"</p>
+                        </td>
+                        <td>
+                           <h2>Tax District</h2>
+							<p data-key="tax_dist">N/A</p>
+                        </td>
+                    </tr>
+				</tbody>
+				</table>
+				<p></p>
+				<table class="text-center metric-box" style="display: table;">
+				<tbody>
+				<h2 style="text-align:center">Valuation</h2>
+					<tr>
+                        <td>
+                           <h2>Appraised Value</h2>
+							<p data-key="total_appr">N/A</p>
+                            
+                        </td>
+                        <td>
+                           <h2>Assessed Value</h2>
+							<p data-key="total_assd">N/A</p>
+                        </td>
+                        <td>
+                           <h2>Taxes Due</h2>
+							<p data-key="tax_due">N/A</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+				<div id="mapid"></div>
+        </div>
+    </div>
+	<div class="container">
+        <!-- Front page -->
+        <div class="page page-front">
+            <div>
+                <div class="subhero">
+                    <!--<h1 class="text-center" id="reportTitle">Franklin County</h1>-->
+					<h2 class="text-center" id="reportTitle">Detailed Parcel Report</h2>						
+                </div>
+            </div>
+            <div class="blather">
+                <p></p>
+				
+            </div>
+			<h2 style="text-align:center">Land</h2>
+            <table class="text-center metric-box" style="display: table;">
+                <tbody>
+                    <tr>
+                        <td>
+                           <h2>Deeded Acres</h2>
+							<p data-key="d_acre">N/A</p>
+                            
+                        </td>
+                        <td>
+                           <h2>Total Acres</h2>
+							<p data-key="total_acre">N/A</p>
+                        </td>
+                        <td>
+                           <h2>Timber Acres</h2>
+							<p data-key="timber_acre">N/A</p>
+                        </td>
+                    </tr>
+					<tr>
+                        <td>
+                           <h2>Land Type</h2>
+							<p data-key="landtype"></p>
+                        </td>
+                        <td>
+                           <h2>Subdivision</h2>
+							<p data-key="subdivname"</p>
+                        </td>
+                        <td>
+                           <h2>Sec-Town-Range</h2>
+							<p data-key="str">N/A</p>
+                        </td>
+                    </tr>
+					<tr>
+                        <td>
+                           <h2>Deed Book</h2>
+							<p data-key="deed_book">N/A</p>
+                            
+                        </td>
+                        <td>
+                           <h2>Deed Page</h2>
+							<p data-key="deed_page">N/A</p>
+                        </td>
+                        <td>
+                           <h2>Deed Date</h2>
+							<p data-key="d_date">N/A</p>
+                        </td>
+                    </tr>
+				</tbody>
+				</table>
+				<p></p>
+				
+				<h2 class="building-head">Building</h2>
+				<table class="building_table">
+              <thead>
+                <tr>
+                  <th></th> <th></th>
+                </tr>
+              </thead>
+              <tbody>
+			  
+			  
+                <tr>
+                    <td class="building_key">Description</td>
+                    <td class="building_value" data-key="imp_desc">N/A</td>
+                </tr>
+
+                 <tr>
+                    <td class="building_key">Year Built</td>
+                    <td class="building_value" data-key="yr_built">N/A</td>
+                </tr>
+
+                 <tr>
+                    <td class="building_key">Year Remodel</td>
+                    <td class="building_value" data-key="yr_remodel">N/A</td>
+                </tr>
+
+                 <tr>
+                    <td class="building_key">Stories</td>
+                    <td class="building_value" data-key="story_type">N/A</td>
+                </tr>
+
+                 <tr>
+                    <td class="building_key">Stories</td>
+                    <td class="building_value" data-key="story_type">N/A</td>
+                </tr>
+
+                 <tr>
+                    <td class="building_key">Rooms</td>
+                    <td class="building_value" data-key="no_rooms">N/A</td>
+                </tr>
+
+                 <tr>
+                    <td class="building_key">Upper Sq Feet</td>
+                    <td class="building_value" data-key="upper_area">N/A</td>
+                </tr>
+
+                 <tr>
+                    <td class="building_key">Appendage Sq Feet</td>
+                    <td class="building_value" data-key="app_adj_area">N/A</td>
+                </tr>
+
+                <tr>
+                    <td class="building_key">Upper Sq Feet Adjusted</td>
+                    <td class="building_value" data-key="upper_adj">N/A</td>
+                </tr>
+
+                <tr>
+                    <td class="building_key">Total Adjusted Area</td>
+                    <td class="building_value" data-key="total_adj">N/A</td>
+                </tr>
+
+            </tbody>
+          </table>
+				
+				
+				
+        </div>
+
+
+  <div class="page page-front">
+				<h2 class="building-head">Building</h2>
+				<table class="building_table">
+              <thead>
+                <tr>
+                  <th></th> <th></th>
+                </tr>
+              </thead>
+              <tbody>
+			  
+			  
+                <tr>
+                    <td class="building_key">Foundation Type</td>
+                    <td class="building_value" data-key="fn_desc1">N/A</td>
+                   <!-- <td class="building_value" data-key="fn_per1">N/A</td> -->
+                </tr>
+
+                 <tr>
+                    <td class="building_key">Foundation Material</td>
+                    <td class="building_value" data-key="fn_desc3">N/A</td>
+                       <!-- <td class="building_value" data-key="fn_per3">N/A</td> -->
+                </tr>
+
+                <tr>
+                    <td class="building_key">Exterior Walls</td>
+                    <td class="building_value" data-key="ew_desc1">N/A</td>
+                      <!--  <td class="building_value" data-key="ew_per1">N/A</td> -->
+                </tr>
+
+                <tr>
+                    <td class="building_key"></td>
+                    <td class="building_value" data-key="ew_desc2">N/A</td>
+                      <!--  <td class="building_value" data-key="ew_per2">N/A</td> -->
+                </tr>
+
+                 <tr>
+                    <td class="building_key">Interior Walls</td>
+                    <td class="building_value" data-key="if_desc1">N/A</td>
+                       <!-- <td class="building_value" data-key="if_per1">N/A</td> -->
+                </tr>
+
+                <tr>
+                    <td class="building_key"></td>
+                    <td class="building_value" data-key="if_desc2">N/A</td>
+                       <!-- <td class="building_value" data-key="if_per2">N/A</td> -->
+                </tr>
+
+                <tr>
+                    <td class="building_key"></td>
+                    <td class="building_value" data-key="if_desc3">N/A</td>
+                       <!-- <td class="building_value" data-key="if_per3">N/A</td> -->
+                </tr>
+
+                 <tr>
+                    <td class="building_key">Flooring</td>
+                    <td class="building_value" data-key="fl_desc1">N/A</td>
+                       <!-- <td class="building_value" data-key="fl_per1">N/A</td> -->
+                </tr>
+
+                <tr>
+                    <td class="building_key"></td>
+                    <td class="building_value" data-key="fl_desc2">N/A</td>
+                      <!--  <td class="building_value" data-key="fl_per2">N/A</td> -->
+                </tr>
+
+                <tr>
+                    <td class="building_key"></td>
+                    <td class="building_value" data-key="fl_desc3">N/A</td>
+                     <!--   <td class="building_value" data-key="fl_per3">N/A</td> -->
+                </tr>
+
+                <tr>
+                    <td class="building_key">Roof Type</td>
+                    <td class="building_value" data-key="rt_desc1">N/A</td>
+                      <!--  <td class="building_value" data-key="rt_per1">N/A</td> -->
+                </tr>
+
+                <tr>
+                    <td class="building_key"></td>
+                    <td class="building_value" data-key="rt_desc2">N/A</td>
+                     <!--   <td class="building_value" data-key="rt_per2">N/A</td> -->
+                </tr>
+
+                <tr>
+                    <td class="building_key">Roof Material</td>
+                    <td class="building_value" data-key="rt_desc3">N/A</td>
+                      <!--  <td class="building_value" data-key="rt_per3">N/A</td> -->
+                </tr>    
+            </tbody>
+          </table>
+				
+				
+				
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+	<script src="https://unpkg.com/leaflet@1.0.1/dist/leaflet.js"></script>
+	<script
+  src="https://code.jquery.com/jquery-3.1.1.min.js"
+  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+  crossorigin="anonymous"></script>
+  <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+	<script src="report.js"></script>
+    </body></html>
