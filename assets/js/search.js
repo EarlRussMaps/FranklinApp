@@ -78,8 +78,7 @@ function openPopup(item)
 {
     var coords = JSON.parse(item.centroid).coordinates.reverse();
     mPopup.setLatLng(coords);
-    map.panTo(coords);
-
+    map.setView(coords,16,{animate: false});
     //Update data
   
     var el = $("#myPop");
