@@ -66,9 +66,36 @@ function search(name)
      });
 }
 
+var mPopup;
+function createPopup()
+{
+    mPopup = L.popup();
+    mPopup.setContent($("#myPop").html()).setLatLng(map.getCenter());
+    map.closePopup();
+}
+
+function openPopup(item)
+{
+    var coords = JSON.parse(item.centroid).coordinates.reverse();
+    mPopup.setLatLng(coords);
+    map.panTo(coords);
+
+    //Update data
+  
+    var el = $("#myPop");
+    el.find('[data-field="name"]').text(item.ownername);
+    el.find('[data-field="address"]').text(item.fulladdress);
+    mPopup.setContent($("#myPop").html());
+    map.openPopup(mPopup);
+
+}
+
 function resultClick(resultId)
 {
-    zoomToParcel(searchData[resultId]);
+    //zoomToParcel(searchData[resultId]);
+    var item = searchData[resultId];
+    openPopup(item);
+    map.setZoom(16);
 }
 
 
@@ -86,7 +113,10 @@ $("#results_list").on("click", 'li',function(event) {
 
 });
 
+
+
 $(function(){
     setupSearchBox();
+    createPopup();
 }
 );

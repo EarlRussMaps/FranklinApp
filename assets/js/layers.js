@@ -7,36 +7,56 @@ function createCartoParcel(onCreated)
 {
     var layerUrl = 'https://cartomike.carto.com/api/v2/viz/92b6a26e-a3c9-11e6-a4a5-0ecd1babdde5/viz.json';
  //   layerUrl = oldLayerUrl;
-    cartodb.createLayer(map, layerUrl).addTo(map).on('done', function (layer) {
+    cartodb.createLayer(map, layerUrl, {infowindow: false}).addTo(map).on('done', function (layer) {
                      layer.setZIndex(10);
                      layers.cartoParcel = layer;
-                     console.log(layer);
+
+                     layers.cartoParcel.getSubLayer(1).setInteraction(true);
+                     layers.cartoParcel.getSubLayer(1).on('featureClick', function(e, latlng, pos, data, layer) {
+                           console.log(data);
+                        infowindowFromId(data.cartodb_id);
+                     });
+
+                     layer.on('mouseover', function() {
+                         $('#map').css('cursor','pointer');
+                     });
+                     layer.on('mouseout', function() {
+                         $('#map').css('cursor','');
+                     });
 
                    /* cartodb.vis.Vis.addInfowindow(map, layer.getSubLayer(1), ['cartodb_id','ownername'],{
                         infowindowTemplate: $('#custom_infowindow_template').html(),
                         templateType: 'mustache'
-
+                          layers.cartoParcel.on('featureClick', function(e, latlng, pos, data, layer) {
+      console.log(data);
+    });
 
   });*/
 
-                 layer.infowindow.bind('change', function() {
-
-						$("#moreInfoLink").click(function()
-						{
-							var pNum = $("#hiddenParcelNumber").text();
-							var reportWindow = window.open("report/index.html?parcelnumber=" + pNum);
-							//setReportData(reportWindow);
-						});
-
-					});
-
-                    onCreated();
+              onCreated();
                 }).on('error', function () {
                         console.log("Error creating Carto Parcel layer");
                   });
 
 }
 
+function infowindowFromId(id)
+{
+    var sql = new cartodb.SQL({ user: 'cartomike' });
+     var endpoint = "https://cartomike.carto.com/api/v2/sql/";
+    // ownerQ = ownerQ.split("{NAME}").join(name);
+     var myQuery = "SELECT *,ST_AsGeoJSON(ST_Centroid(the_geom)) as centroid FROM parcels_carto WHERE cartodb_id = " + id;
+console.log(id);
+
+
+     $.getJSON(
+     endpoint,
+     { q: myQuery },
+     function (data) {  
+         //console.log(data.rows[0]);  
+         openPopup(data.rows[0]);
+     });
+}
 
 function createMapboxOSM()
 {
