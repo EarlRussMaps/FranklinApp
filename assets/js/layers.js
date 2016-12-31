@@ -113,11 +113,18 @@ function createReference()
 });
 }
 
+function createWaterLayer()
+{
+   
+    L.esri.featureLayer({
+      url: 'http://8.35.16.158/arcgisserver/rest/services/RedBayWater/FeatureServer/0'
+    }).addTo(map);
+}
+
 
 function createLayers(onFinished)
 {
-    createCartoParcel(function(){
-        layers.cartoParcel.addTo(map);
+        createWaterLayer();
         createMapboxOSM();
         createMapboxSAT();
         createEsriTopo();
@@ -126,7 +133,6 @@ function createLayers(onFinished)
 		createZoning();
 		createReference();
         onFinished();
-    });
 }
 
 function createEsriTopo()
